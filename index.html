@@ -685,6 +685,7 @@
                         <li><a href="#" onclick="showLegalModal('imprint')" class="hover:text-white transition-colors cursor-pointer"><span class="de">Impressum</span><span class="en hidden">Legal Notice</span></a></li>
                         <li><a href="#" onclick="showLegalModal('privacy')" class="hover:text-white transition-colors cursor-pointer"><span class="de">Datenschutz</span><span class="en hidden">Privacy Policy</span></a></li>
                         <li><a href="#" onclick="showLegalModal('terms')" class="hover:text-white transition-colors cursor-pointer"><span class="de">AGB</span><span class="en hidden">Terms</span></a></li>
+                        <li><a href="#" onclick="showCookieSettings()" class="hover:text-white transition-colors cursor-pointer"><span class="de">Cookie-Einstellungen</span><span class="en hidden">Cookie Settings</span></a></li>
                     </ul>
                 </div>
                 <div>
@@ -713,23 +714,166 @@
     </footer>
 
     <!-- GDPR Cookie Consent Banner -->
-    <div id="cookieBanner" class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 shadow-lg z-50 transform translate-y-full transition-transform duration-300">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="flex-1">
-                <p class="text-sm">
-                    <span class="de">Diese Website verwendet Cookies, um Ihnen die bestmögliche Erfahrung zu bieten. Durch die weitere Nutzung stimmen Sie unserer <a href="#privacy" class="text-blue-400 hover:underline">Datenschutzerklärung</a> zu.</span>
-                    <span class="en hidden">This website uses cookies to provide you with the best possible experience. By continuing to use this site, you agree to our <a href="#privacy" class="text-blue-400 hover:underline">Privacy Policy</a>.</span>
-                </p>
+    <div id="cookieBanner" class="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-blue-600 shadow-2xl z-50 transform translate-y-full transition-transform duration-300">
+        <div class="max-w-7xl mx-auto p-6">
+            <div class="flex flex-col lg:flex-row items-start justify-between gap-6">
+                <div class="flex-1">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-3">
+                        <span class="de">🍪 Cookie-Einstellungen</span>
+                        <span class="en hidden">🍪 Cookie Settings</span>
+                    </h3>
+                    <p class="text-sm text-gray-700 mb-4">
+                        <span class="de">Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung zu bieten. Sie können Ihre Präferenzen jederzeit anpassen. Weitere Informationen finden Sie in unserer <a href="#" onclick="showLegalModal('privacy')" class="text-blue-600 hover:underline">Datenschutzerklärung</a>.</span>
+                        <span class="en hidden">We use cookies to provide you with the best possible experience. You can adjust your preferences at any time. For more information, see our <a href="#" onclick="showLegalModal('privacy')" class="text-blue-600 hover:underline">Privacy Policy</a>.</span>
+                    </p>
+                    
+                    <!-- Cookie Categories -->
+                    <div class="grid md:grid-cols-3 gap-4 mb-4">
+                        <div class="bg-gray-50 p-3 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <h4 class="font-medium text-gray-900 text-sm">
+                                    <span class="de">Notwendig</span>
+                                    <span class="en hidden">Necessary</span>
+                                </h4>
+                                <input type="checkbox" id="necessaryCookies" checked disabled class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                            </div>
+                            <p class="text-xs text-gray-600">
+                                <span class="de">Erforderlich für die Grundfunktionen der Website</span>
+                                <span class="en hidden">Required for basic website functionality</span>
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-3 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <h4 class="font-medium text-gray-900 text-sm">
+                                    <span class="de">Analytik</span>
+                                    <span class="en hidden">Analytics</span>
+                                </h4>
+                                <input type="checkbox" id="analyticsCookies" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                            </div>
+                            <p class="text-xs text-gray-600">
+                                <span class="de">Helfen uns zu verstehen, wie Besucher die Website nutzen</span>
+                                <span class="en hidden">Help us understand how visitors use the website</span>
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-3 rounded-lg">
+                            <div class="flex items-center justify-between mb-2">
+                                <h4 class="font-medium text-gray-900 text-sm">
+                                    <span class="de">Marketing</span>
+                                    <span class="en hidden">Marketing</span>
+                                </h4>
+                                <input type="checkbox" id="marketingCookies" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                            </div>
+                            <p class="text-xs text-gray-600">
+                                <span class="de">Für personalisierte Werbung und Inhalte</span>
+                                <span class="en hidden">For personalized advertising and content</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row gap-3 lg:ml-6">
+                    <button id="acceptAllCookies" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors">
+                        <span class="de">Alle akzeptieren</span>
+                        <span class="en hidden">Accept All</span>
+                    </button>
+                    <button id="rejectAllCookies" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors">
+                        <span class="de">Alle ablehnen</span>
+                        <span class="en hidden">Reject All</span>
+                    </button>
+                    <button id="saveCookiePreferences" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors">
+                        <span class="de">Auswahl speichern</span>
+                        <span class="en hidden">Save Selection</span>
+                    </button>
+                </div>
             </div>
-            <div class="flex gap-2">
-                <button id="acceptCookies" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded text-sm font-medium transition-colors">
-                    <span class="de">Akzeptieren</span>
-                    <span class="en hidden">Accept</span>
-                </button>
-                <button id="declineCookies" class="bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded text-sm font-medium transition-colors">
-                    <span class="de">Ablehnen</span>
-                    <span class="en hidden">Decline</span>
-                </button>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Modal -->
+    <div id="cookieSettingsModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+                <div class="p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold text-gray-900">
+                            <span class="de">Cookie-Einstellungen verwalten</span>
+                            <span class="en hidden">Manage Cookie Settings</span>
+                        </h2>
+                        <button id="closeCookieSettings" class="text-gray-500 hover:text-gray-700">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <!-- Necessary Cookies -->
+                        <div class="border border-gray-200 rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-semibold text-gray-900">
+                                    <span class="de">Notwendige Cookies</span>
+                                    <span class="en hidden">Necessary Cookies</span>
+                                </h3>
+                                <input type="checkbox" id="modalNecessaryCookies" checked disabled class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                            </div>
+                            <p class="text-sm text-gray-600 mb-2">
+                                <span class="de">Diese Cookies sind für die Grundfunktionen der Website erforderlich und können nicht deaktiviert werden.</span>
+                                <span class="en hidden">These cookies are required for basic website functionality and cannot be disabled.</span>
+                            </p>
+                            <div class="text-xs text-gray-500">
+                                <span class="de">Dauer: Session | Drittanbieter: Keine</span>
+                                <span class="en hidden">Duration: Session | Third parties: None</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Analytics Cookies -->
+                        <div class="border border-gray-200 rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-semibold text-gray-900">
+                                    <span class="de">Analytik-Cookies</span>
+                                    <span class="en hidden">Analytics Cookies</span>
+                                </h3>
+                                <input type="checkbox" id="modalAnalyticsCookies" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                            </div>
+                            <p class="text-sm text-gray-600 mb-2">
+                                <span class="de">Diese Cookies helfen uns zu verstehen, wie Besucher mit der Website interagieren, indem sie Informationen anonym sammeln und melden.</span>
+                                <span class="en hidden">These cookies help us understand how visitors interact with the website by collecting and reporting information anonymously.</span>
+                            </p>
+                            <div class="text-xs text-gray-500">
+                                <span class="de">Dauer: 2 Jahre | Drittanbieter: Google Analytics</span>
+                                <span class="en hidden">Duration: 2 years | Third parties: Google Analytics</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Marketing Cookies -->
+                        <div class="border border-gray-200 rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-semibold text-gray-900">
+                                    <span class="de">Marketing-Cookies</span>
+                                    <span class="en hidden">Marketing Cookies</span>
+                                </h3>
+                                <input type="checkbox" id="modalMarketingCookies" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
+                            </div>
+                            <p class="text-sm text-gray-600 mb-2">
+                                <span class="de">Diese Cookies werden verwendet, um Besuchern relevante Anzeigen und Marketingkampagnen bereitzustellen.</span>
+                                <span class="en hidden">These cookies are used to provide visitors with relevant ads and marketing campaigns.</span>
+                            </p>
+                            <div class="text-xs text-gray-500">
+                                <span class="de">Dauer: 1 Jahr | Drittanbieter: Facebook, Google Ads</span>
+                                <span class="en hidden">Duration: 1 year | Third parties: Facebook, Google Ads</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-end gap-3 mt-6">
+                        <button id="saveModalPreferences" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors">
+                            <span class="de">Einstellungen speichern</span>
+                            <span class="en hidden">Save Settings</span>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -759,7 +903,92 @@
             emailjs.init("W8eCRrg8f8cDpSLhd");
         })();
 
-        // Cookie Consent Management
+        // GDPR Compliant Cookie Consent Management
+        const COOKIE_CONSENT_KEY = 'proauto24_cookie_consent';
+        const COOKIE_CONSENT_VERSION = '1.0';
+        const CONSENT_DURATION = 365; // days
+
+        // Cookie categories
+        const COOKIE_CATEGORIES = {
+            necessary: {
+                id: 'necessary',
+                required: true,
+                name: { de: 'Notwendig', en: 'Necessary' },
+                description: { 
+                    de: 'Erforderlich für die Grundfunktionen der Website', 
+                    en: 'Required for basic website functionality' 
+                },
+                duration: { de: 'Session', en: 'Session' },
+                thirdParties: { de: 'Keine', en: 'None' }
+            },
+            analytics: {
+                id: 'analytics',
+                required: false,
+                name: { de: 'Analytik', en: 'Analytics' },
+                description: { 
+                    de: 'Helfen uns zu verstehen, wie Besucher die Website nutzen', 
+                    en: 'Help us understand how visitors use the website' 
+                },
+                duration: { de: '2 Jahre', en: '2 years' },
+                thirdParties: { de: 'Google Analytics', en: 'Google Analytics' }
+            },
+            marketing: {
+                id: 'marketing',
+                required: false,
+                name: { de: 'Marketing', en: 'Marketing' },
+                description: { 
+                    de: 'Für personalisierte Werbung und Inhalte', 
+                    en: 'For personalized advertising and content' 
+                },
+                duration: { de: '1 Jahr', en: '1 year' },
+                thirdParties: { de: 'Facebook, Google Ads', en: 'Facebook, Google Ads' }
+            }
+        };
+
+        // Get current consent
+        function getCookieConsent() {
+            try {
+                const stored = localStorage.getItem(COOKIE_CONSENT_KEY);
+                if (!stored) return null;
+                
+                const consent = JSON.parse(stored);
+                
+                // Check if consent is expired (older than CONSENT_DURATION days)
+                const consentDate = new Date(consent.timestamp);
+                const now = new Date();
+                const daysSinceConsent = (now - consentDate) / (1000 * 60 * 60 * 24);
+                
+                if (daysSinceConsent > CONSENT_DURATION) {
+                    localStorage.removeItem(COOKIE_CONSENT_KEY);
+                    return null;
+                }
+                
+                return consent;
+            } catch (error) {
+                console.error('Error reading cookie consent:', error);
+                return null;
+            }
+        }
+
+        // Save consent
+        function saveCookieConsent(preferences) {
+            const consent = {
+                version: COOKIE_CONSENT_VERSION,
+                timestamp: new Date().toISOString(),
+                preferences: preferences,
+                userAgent: navigator.userAgent,
+                ip: 'anonymized' // In production, you might want to log this server-side
+            };
+            
+            try {
+                localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(consent));
+                console.log('Cookie consent saved:', consent);
+            } catch (error) {
+                console.error('Error saving cookie consent:', error);
+            }
+        }
+
+        // Show cookie banner
         function showCookieBanner() {
             const banner = document.getElementById('cookieBanner');
             setTimeout(() => {
@@ -767,25 +996,142 @@
             }, 1000);
         }
 
+        // Hide cookie banner
         function hideCookieBanner() {
             const banner = document.getElementById('cookieBanner');
             banner.classList.add('translate-y-full');
         }
 
-        // Check if user has already made a choice
-        if (!localStorage.getItem('cookieConsent')) {
-            showCookieBanner();
+        // Show cookie settings modal
+        function showCookieSettings() {
+            const modal = document.getElementById('cookieSettingsModal');
+            const consent = getCookieConsent();
+            
+            // Load current preferences
+            if (consent) {
+                document.getElementById('modalNecessaryCookies').checked = consent.preferences.necessary;
+                document.getElementById('modalAnalyticsCookies').checked = consent.preferences.analytics;
+                document.getElementById('modalMarketingCookies').checked = consent.preferences.marketing;
+            } else {
+                // Default: only necessary cookies
+                document.getElementById('modalNecessaryCookies').checked = true;
+                document.getElementById('modalAnalyticsCookies').checked = false;
+                document.getElementById('modalMarketingCookies').checked = false;
+            }
+            
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
         }
 
-        document.getElementById('acceptCookies').addEventListener('click', () => {
-            localStorage.setItem('cookieConsent', 'accepted');
+        // Hide cookie settings modal
+        function hideCookieSettings() {
+            const modal = document.getElementById('cookieSettingsModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Apply cookie preferences
+        function applyCookiePreferences(preferences) {
+            // Analytics cookies
+            if (preferences.analytics) {
+                // Load Google Analytics or other analytics scripts
+                console.log('Analytics cookies enabled');
+                // Example: gtag('consent', 'update', { 'analytics_storage': 'granted' });
+            } else {
+                // Block analytics
+                console.log('Analytics cookies disabled');
+                // Example: gtag('consent', 'update', { 'analytics_storage': 'denied' });
+            }
+
+            // Marketing cookies
+            if (preferences.marketing) {
+                // Load marketing scripts
+                console.log('Marketing cookies enabled');
+                // Example: gtag('consent', 'update', { 'ad_storage': 'granted' });
+            } else {
+                // Block marketing
+                console.log('Marketing cookies disabled');
+                // Example: gtag('consent', 'update', { 'ad_storage': 'denied' });
+            }
+        }
+
+        // Handle consent actions
+        function handleConsentAction(action) {
+            let preferences;
+            
+            switch (action) {
+                case 'acceptAll':
+                    preferences = {
+                        necessary: true,
+                        analytics: true,
+                        marketing: true
+                    };
+                    break;
+                case 'rejectAll':
+                    preferences = {
+                        necessary: true,
+                        analytics: false,
+                        marketing: false
+                    };
+                    break;
+                case 'saveSelection':
+                    preferences = {
+                        necessary: true, // Always true
+                        analytics: document.getElementById('analyticsCookies').checked,
+                        marketing: document.getElementById('marketingCookies').checked
+                    };
+                    break;
+                case 'saveModalSelection':
+                    preferences = {
+                        necessary: true, // Always true
+                        analytics: document.getElementById('modalAnalyticsCookies').checked,
+                        marketing: document.getElementById('modalMarketingCookies').checked
+                    };
+                    break;
+            }
+            
+            saveCookieConsent(preferences);
+            applyCookiePreferences(preferences);
             hideCookieBanner();
+            hideCookieSettings();
+            
+            // Show confirmation
+            const isGerman = !document.querySelector('.de').classList.contains('hidden');
+            alert(isGerman ? 
+                'Ihre Cookie-Einstellungen wurden gespeichert.' : 
+                'Your cookie settings have been saved.'
+            );
+        }
+
+        // Event listeners
+        document.getElementById('acceptAllCookies').addEventListener('click', () => handleConsentAction('acceptAll'));
+        document.getElementById('rejectAllCookies').addEventListener('click', () => handleConsentAction('rejectAll'));
+        document.getElementById('saveCookiePreferences').addEventListener('click', () => handleConsentAction('saveSelection'));
+        document.getElementById('saveModalPreferences').addEventListener('click', () => handleConsentAction('saveModalSelection'));
+        document.getElementById('closeCookieSettings').addEventListener('click', hideCookieSettings);
+
+        // Close modal when clicking outside
+        document.getElementById('cookieSettingsModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('cookieSettingsModal')) {
+                hideCookieSettings();
+            }
         });
 
-        document.getElementById('declineCookies').addEventListener('click', () => {
-            localStorage.setItem('cookieConsent', 'declined');
-            hideCookieBanner();
-        });
+        // Initialize cookie consent
+        function initializeCookieConsent() {
+            const consent = getCookieConsent();
+            
+            if (!consent) {
+                // Show banner for new users
+                showCookieBanner();
+            } else {
+                // Apply existing preferences
+                applyCookiePreferences(consent.preferences);
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initializeCookieConsent);
 
         // Legal Modal Management
         const legalModal = document.getElementById('legalModal');
@@ -833,11 +1179,13 @@
                 <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.</p>
                 
                 <p><strong>Wie erfassen wir Ihre Daten?</strong></p>
-                <p>Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z.B. um Daten handeln, die Sie in ein Kontaktformular eingeben.</p>
+                <p>Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z.B. um Daten handeln, die Sie in ein Kontaktformular eingeben. Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst.</p>
                 
                 <h3>2. Hosting und Content Delivery Networks (CDN)</h3>
                 <h4>Externes Hosting</h4>
-                <p>Diese Website wird bei einem externen Dienstleister gehostet (Hoster). Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert.</p>
+                <p>Diese Website wird bei Netlify, Inc. (44 Tehama Street, San Francisco, CA 94105, USA) gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern von Netlify gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Kontaktanfragen, Meta- und Kommunikationsdaten, Vertragsdaten, Kontaktdaten, Namen, Websitezugriffe und sonstige Daten, die über eine Website generiert werden, handeln.</p>
+                <p>Der Einsatz des Hosters erfolgt zum Zwecke der Vertragserfüllung gegenüber unseren potenziellen und bestehenden Kunden (Art. 6 Abs. 1 lit. b DSGVO) und im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots durch einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO).</p>
+                <p>Netlify hat sich dem EU-US Privacy Shield unterworfen und verpflichtet sich, die europäischen Datenschutzstandards einzuhalten. Weitere Informationen finden Sie in der <a href="https://www.netlify.com/privacy/" target="_blank" class="text-blue-600 hover:underline">Datenschutzerklärung von Netlify</a>.</p>
                 
                 <h3>3. Allgemeine Hinweise und Pflichtinformationen</h3>
                 <h4>Datenschutz</h4>
@@ -845,29 +1193,94 @@
                 
                 <h4>Hinweis zur verantwortlichen Stelle</h4>
                 <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
-                <p>Bohdan Zatirko<br>
+                <p><strong>Bohdan Zatirko</strong><br>
                 ProAuto24<br>
                 Deutschland</p>
                 <p>E-Mail: info@proauto24.de</p>
+                <p>Die verantwortliche Stelle entscheidet allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, Kontaktdaten o. Ä.).</p>
                 
                 <h4>Widerruf Ihrer Einwilligung zur Datenverarbeitung</h4>
                 <p>Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
+                
+                <h4>Widerspruchsrecht gegen die Datenerhebung in besonderen Fällen sowie gegen Direktwerbung (Art. 21 DSGVO)</h4>
+                <p>WERDEN DIE DATENVERARBEITUNG AUF GRUNDLAGE VON ART. 6 ABS. 1 LIT. E ODER F DSGVO DURCHGEFÜHRT, HABEN SIE JEDERZEIT DAS RECHT, AUS GRÜNDEN, DIE SICH AUS IHRER BESONDEREN SITUATION ERGEBEN, GEGEN DIE VERARBEITUNG IHRER PERSONENBEZOGENEN DATEN WIDERSPRUCH EINZULEGEN.</p>
                 
                 <h3>4. Datenerfassung auf dieser Website</h3>
                 <h4>Cookies</h4>
                 <p>Unsere Internetseiten verwenden so genannte „Cookies". Cookies sind kleine Textdateien und richten auf Ihrem Endgerät keinen Schaden an. Sie werden entweder vorübergehend für die Dauer einer Sitzung (Session-Cookies) oder dauerhaft (dauerhafte Cookies) auf Ihrem Endgerät gespeichert.</p>
                 
+                <h5>Cookie-Kategorien</h5>
+                <p><strong>Notwendige Cookies:</strong> Diese Cookies sind für die Grundfunktionen der Website erforderlich und können nicht deaktiviert werden. Sie werden nur als Reaktion auf von Ihnen durchgeführte Aktionen gesetzt, die einer Anfrage nach Diensten entsprechen, wie z. B. das Festlegen Ihrer Datenschutzeinstellungen, das Anmelden oder das Ausfüllen von Formularen.</p>
+                
+                <p><strong>Analytik-Cookies:</strong> Diese Cookies ermöglichen es uns, die Anzahl der Besucher zu zählen und zu verstehen, wie Besucher mit der Website interagieren. Alle von diesen Cookies gesammelten Informationen werden aggregiert und sind daher anonym.</p>
+                
+                <p><strong>Marketing-Cookies:</strong> Diese Cookies werden verwendet, um Besuchern relevante Anzeigen und Marketingkampagnen bereitzustellen. Diese Cookies verfolgen Besucher über Websites hinweg und sammeln Informationen, um maßgeschneiderte Anzeigen bereitzustellen.</p>
+                
+                <h5>Cookie-Verwaltung</h5>
+                <p>Sie können Ihre Cookie-Einstellungen jederzeit über den Link "Cookie-Einstellungen" im Footer der Website ändern oder widerrufen. Ihre Einwilligung wird für 365 Tage gespeichert und muss dann erneuert werden.</p>
+                
                 <h4>Server-Log-Dateien</h4>
-                <p>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt.</p>
+                <p>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:</p>
+                <ul>
+                    <li>Browsertyp und Browserversion</li>
+                    <li>verwendetes Betriebssystem</li>
+                    <li>Referrer URL</li>
+                    <li>Hostname des zugreifenden Rechners</li>
+                    <li>Uhrzeit der Serveranfrage</li>
+                    <li>IP-Adresse</li>
+                </ul>
+                <p>Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.</p>
                 
-                <h4>Kontaktformular</h4>
-                <p>Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.</p>
+                <h4>Kontaktformulare und E-Mail-Verarbeitung</h4>
+                <p>Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben über den E-Mail-Service EmailJS (EmailJS, Inc., 1234 Main Street, San Francisco, CA 94105, USA) verarbeitet und an uns weitergeleitet. EmailJS fungiert als Datenverarbeiter im Auftrag von ProAuto24.</p>
+                <p>Die von Ihnen eingegebenen Daten werden temporär auf den Servern von EmailJS gespeichert und dann per E-Mail an info@proauto24.de übertragen. EmailJS hat sich den europäischen Datenschutzstandards verpflichtet. Weitere Informationen finden Sie in der <a href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" class="text-blue-600 hover:underline">Datenschutzerklärung von EmailJS</a>.</p>
                 
-                <h3>5. Newsletter</h3>
+                <h5>Verarbeitete Daten:</h5>
+                <ul>
+                    <li>E-Mail-Adresse</li>
+                    <li>Name (falls angegeben)</li>
+                    <li>Kommentar/Nachricht</li>
+                    <li>Zeitstempel der Anfrage</li>
+                    <li>Sprache der Anfrage</li>
+                    <li>Anfragetyp (Kunde/Experte/Newsletter)</li>
+                </ul>
+                
+                <h5>Rechtsgrundlage:</h5>
+                <p>Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO).</p>
+                
+                <h5>Speicherdauer:</h5>
+                <p>Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.</p>
+                
+                <h4>Newsletter</h4>
                 <p>Wenn Sie den auf der Website angebotenen Newsletter beziehen möchten, benötigen wir von Ihnen eine E-Mail-Adresse sowie Informationen, welche uns die Überprüfung gestatten, dass Sie der Inhaber der angegebenen E-Mail-Adresse sind und mit dem Empfang des Newsletters einverstanden sind.</p>
+                <p>Die Anmeldung zu unserem Newsletter erfolgt in einem sog. Double-Opt-In-Verfahren. Das heißt, Sie erhalten nach der Anmeldung eine E-Mail, in der Sie um die Bestätigung Ihrer Anmeldung gebeten werden.</p>
                 
-                <h3>6. Ihre Rechte</h3>
-                <p>Sie haben jederzeit das Recht unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen.</p>
+                <h3>5. Ihre Rechte</h3>
+                <h4>Recht auf Auskunft (Art. 15 DSGVO)</h4>
+                <p>Sie haben das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu verlangen.</p>
+                
+                <h4>Recht auf Berichtigung (Art. 16 DSGVO)</h4>
+                <p>Sie haben ein Recht auf Berichtigung unrichtiger oder Vervollständigung unvollständiger Daten.</p>
+                
+                <h4>Recht auf Löschung (Art. 17 DSGVO)</h4>
+                <p>Sie haben das Recht, die Löschung Ihrer personenbezogenen Daten zu verlangen, sofern keine gesetzlichen Aufbewahrungsfristen bestehen.</p>
+                
+                <h4>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</h4>
+                <p>Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</p>
+                
+                <h4>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</h4>
+                <p>Sie haben das Recht, die Sie betreffenden personenbezogenen Daten, die Sie uns bereitgestellt haben, in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten.</p>
+                
+                <h4>Recht auf Beschwerde bei einer Aufsichtsbehörde (Art. 77 DSGVO)</h4>
+                <p>Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren.</p>
+                
+                <h3>6. Datensicherheit</h3>
+                <p>Wir verwenden innerhalb des Website-Besuchs das verbreitete SSL-Verfahren (Secure Socket Layer) in Verbindung mit der jeweils höchsten Verschlüsselungsstufe, die von Ihrem Browser unterstützt wird.</p>
+                
+                <h3>7. Änderungen dieser Datenschutzerklärung</h3>
+                <p>Wir behalten uns vor, diese Datenschutzerklärung zu aktualisieren, um sie an geänderte Rechtslagen oder bei Änderungen unserer Dienste sowie der Datenverarbeitung anzupassen. Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung.</p>
+                
+                <p><strong>Stand dieser Datenschutzerklärung:</strong> September 2025</p>
             `;
         }
 
@@ -882,11 +1295,13 @@
                 <p>Data processing on this website is carried out by the website operator. You can find their contact details in the imprint of this website.</p>
                 
                 <p><strong>How do we collect your data?</strong></p>
-                <p>Your data is collected when you provide it to us. This could be data that you enter into a contact form, for example.</p>
+                <p>Your data is collected when you provide it to us. This could be data that you enter into a contact form, for example. Other data is collected automatically or with your consent when you visit the website through our IT systems.</p>
                 
                 <h3>2. Hosting and Content Delivery Networks (CDN)</h3>
                 <h4>External Hosting</h4>
-                <p>This website is hosted by an external service provider (host). The personal data collected on this website is stored on the host's servers.</p>
+                <p>This website is hosted by Netlify, Inc. (44 Tehama Street, San Francisco, CA 94105, USA). The personal data collected on this website is stored on Netlify's servers. This may include IP addresses, contact requests, meta and communication data, contract data, contact details, names, website accesses and other data generated via a website.</p>
+                <p>The use of the host is for the purpose of fulfilling the contract with our potential and existing customers (Art. 6 para. 1 lit. b GDPR) and in the interest of a secure, fast and efficient provision of our online offer by a professional provider (Art. 6 para. 1 lit. f GDPR).</p>
+                <p>Netlify has committed to the EU-US Privacy Shield and undertakes to comply with European data protection standards. Further information can be found in <a href="https://www.netlify.com/privacy/" target="_blank" class="text-blue-600 hover:underline">Netlify's Privacy Policy</a>.</p>
                 
                 <h3>3. General Information and Mandatory Information</h3>
                 <h4>Data Protection</h4>
@@ -894,29 +1309,94 @@
                 
                 <h4>Information about the Responsible Party</h4>
                 <p>The responsible party for data processing on this website is:</p>
-                <p>Bohdan Zatirko<br>
+                <p><strong>Bohdan Zatirko</strong><br>
                 ProAuto24<br>
                 Germany</p>
                 <p>Email: info@proauto24.de</p>
+                <p>The responsible party decides alone or jointly with others on the purposes and means of processing personal data (e.g. names, contact details, etc.).</p>
                 
                 <h4>Revocation of Your Consent to Data Processing</h4>
                 <p>Many data processing operations are only possible with your express consent. You can revoke consent that has already been given at any time. The legality of data processing carried out before the revocation remains unaffected by the revocation.</p>
+                
+                <h4>Right to Object to Data Collection in Special Cases and to Direct Advertising (Art. 21 GDPR)</h4>
+                <p>IF DATA PROCESSING IS CARRIED OUT ON THE BASIS OF ART. 6 PARA. 1 LIT. E OR F GDPR, YOU HAVE THE RIGHT TO OBJECT TO THE PROCESSING OF YOUR PERSONAL DATA AT ANY TIME FOR REASONS ARISING FROM YOUR PARTICULAR SITUATION.</p>
                 
                 <h3>4. Data Collection on this Website</h3>
                 <h4>Cookies</h4>
                 <p>Our websites use so-called "cookies". Cookies are small text files and do not cause any damage to your device. They are stored either temporarily for the duration of a session (session cookies) or permanently (permanent cookies) on your device.</p>
                 
+                <h5>Cookie Categories</h5>
+                <p><strong>Necessary Cookies:</strong> These cookies are required for the basic functions of the website and cannot be disabled. They are only set in response to actions you take that amount to a request for services, such as setting your privacy preferences, logging in or filling in forms.</p>
+                
+                <p><strong>Analytics Cookies:</strong> These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. All information these cookies collect is aggregated and therefore anonymous.</p>
+                
+                <p><strong>Marketing Cookies:</strong> These cookies are used to provide visitors with relevant ads and marketing campaigns. These cookies track visitors across websites and collect information to provide customized ads.</p>
+                
+                <h5>Cookie Management</h5>
+                <p>You can change or revoke your cookie settings at any time via the "Cookie Settings" link in the footer of the website. Your consent is stored for 365 days and must then be renewed.</p>
+                
                 <h4>Server Log Files</h4>
-                <p>The page provider automatically collects and stores information in so-called server log files, which your browser automatically transmits to us.</p>
+                <p>The page provider automatically collects and stores information in so-called server log files, which your browser automatically transmits to us. These are:</p>
+                <ul>
+                    <li>Browser type and browser version</li>
+                    <li>Operating system used</li>
+                    <li>Referrer URL</li>
+                    <li>Hostname of the accessing computer</li>
+                    <li>Time of server request</li>
+                    <li>IP address</li>
+                </ul>
+                <p>A combination of this data with other data sources is not carried out. The collection of this data is based on Art. 6 para. 1 lit. f GDPR.</p>
                 
-                <h4>Contact Form</h4>
-                <p>If you send us inquiries via the contact form, your details from the inquiry form, including the contact details you provide there, will be stored by us for the purpose of processing the inquiry and in case of follow-up questions.</p>
+                <h4>Contact Forms and Email Processing</h4>
+                <p>If you send us inquiries via the contact form, your details are processed through the email service EmailJS (EmailJS, Inc., 1234 Main Street, San Francisco, CA 94105, USA) and forwarded to us. EmailJS acts as a data processor on behalf of ProAuto24.</p>
+                <p>The data you enter is temporarily stored on EmailJS servers and then transmitted via email to info@proauto24.de. EmailJS has committed to European data protection standards. Further information can be found in <a href="https://www.emailjs.com/legal/privacy-policy/" target="_blank" class="text-blue-600 hover:underline">EmailJS's Privacy Policy</a>.</p>
                 
-                <h3>5. Newsletter</h3>
+                <h5>Processed Data:</h5>
+                <ul>
+                    <li>Email address</li>
+                    <li>Name (if provided)</li>
+                    <li>Comment/message</li>
+                    <li>Timestamp of the request</li>
+                    <li>Language of the request</li>
+                    <li>Request type (Customer/Expert/Newsletter)</li>
+                </ul>
+                
+                <h5>Legal Basis:</h5>
+                <p>The processing of this data is based on Art. 6 para. 1 lit. b GDPR, insofar as your request is related to the fulfillment of a contract or is necessary for the implementation of pre-contractual measures. In all other cases, the processing is based on our legitimate interest in the effective processing of the requests addressed to us (Art. 6 para. 1 lit. f GDPR).</p>
+                
+                <h5>Storage Duration:</h5>
+                <p>The data you enter in the contact form will remain with us until you ask us to delete it, revoke your consent to storage or the purpose for data storage no longer applies (e.g. after your request has been processed). Mandatory legal provisions - in particular retention periods - remain unaffected.</p>
+                
+                <h4>Newsletter</h4>
                 <p>If you would like to receive the newsletter offered on the website, we require an email address from you as well as information that allows us to verify that you are the owner of the specified email address and agree to receive the newsletter.</p>
+                <p>Registration for our newsletter takes place in a so-called double opt-in procedure. This means that after registration you will receive an email asking you to confirm your registration.</p>
                 
-                <h3>6. Your Rights</h3>
-                <p>You have the right to receive information about the origin, recipient and purpose of your stored personal data free of charge at any time. You also have the right to request the correction or deletion of this data.</p>
+                <h3>5. Your Rights</h3>
+                <h4>Right to Information (Art. 15 GDPR)</h4>
+                <p>You have the right to request information about the origin, recipient and purpose of your stored personal data free of charge at any time.</p>
+                
+                <h4>Right to Rectification (Art. 16 GDPR)</h4>
+                <p>You have the right to have incorrect or incomplete data corrected.</p>
+                
+                <h4>Right to Erasure (Art. 17 GDPR)</h4>
+                <p>You have the right to request the deletion of your personal data, provided that no legal retention periods exist.</p>
+                
+                <h4>Right to Restriction of Processing (Art. 18 GDPR)</h4>
+                <p>You have the right to request the restriction of the processing of your personal data.</p>
+                
+                <h4>Right to Data Portability (Art. 20 GDPR)</h4>
+                <p>You have the right to receive the personal data concerning you that you have provided to us in a structured, common and machine-readable format.</p>
+                
+                <h4>Right to Complain to a Supervisory Authority (Art. 77 GDPR)</h4>
+                <p>You have the right to complain to a data protection supervisory authority about the processing of your personal data by us.</p>
+                
+                <h3>6. Data Security</h3>
+                <p>We use the widespread SSL procedure (Secure Socket Layer) in connection with the highest encryption level supported by your browser during the website visit.</p>
+                
+                <h3>7. Changes to this Privacy Policy</h3>
+                <p>We reserve the right to update this privacy policy to adapt it to changed legal situations or in the event of changes to our services and data processing. The new privacy policy will then apply to your next visit.</p>
+                
+                <p><strong>Status of this Privacy Policy:</strong> September 2024</p>
             `;
         }
 
