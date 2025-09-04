@@ -30,13 +30,15 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <div class="text-2xl font-bold text-blue-600">ProAuto24</div>
-                    <span class="ml-3 bg-orange-100 text-orange-600 px-2 py-1 rounded-full text-xs font-medium">
+                    <div class="text-xl sm:text-2xl font-bold text-blue-600">ProAuto24</div>
+                    <span class="ml-2 sm:ml-3 bg-orange-100 text-orange-600 px-2 py-1 rounded-full text-xs font-medium hidden sm:inline-block">
                         <span class="de">Bald verfügbar</span>
                         <span class="en hidden">Coming Soon</span>
                     </span>
                 </div>
-                <div class="flex items-center space-x-6">
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-6">
                     <a href="#concept" class="text-gray-700 hover:text-blue-600 transition-colors">
                         <span class="de">Konzept</span>
                         <span class="en hidden">Concept</span>
@@ -52,6 +54,36 @@
                     <button id="langToggle" class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-200 transition-colors">
                         EN
                     </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center space-x-3">
+                    <button id="langToggleMobile" class="bg-blue-100 text-blue-600 px-2 py-1 rounded-full text-xs font-medium hover:bg-blue-200 transition-colors">
+                        EN
+                    </button>
+                    <button id="mobileMenuButton" class="text-gray-700 hover:text-blue-600 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-200 shadow-lg">
+                <div class="px-4 py-4 space-y-3">
+                    <a href="#concept" class="block text-gray-700 hover:text-blue-600 transition-colors py-2">
+                        <span class="de">Konzept</span>
+                        <span class="en hidden">Concept</span>
+                    </a>
+                    <a href="#features" class="block text-gray-700 hover:text-blue-600 transition-colors py-2">
+                        <span class="de">Features</span>
+                        <span class="en hidden">Features</span>
+                    </a>
+                    <a href="#signup" class="block text-gray-700 hover:text-blue-600 transition-colors py-2">
+                        <span class="de">Anmelden</span>
+                        <span class="en hidden">Sign Up</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -74,29 +106,29 @@
                     </div>
                 </div>
                 
-                <h1 class="text-6xl font-bold mb-6 leading-tight fade-in">
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight fade-in">
                     <span class="de">Die erste Plattform für<br><span class="text-yellow-300">Autoexperten</span> in Deutschland</span>
                     <span class="en hidden">The first platform for<br><span class="text-yellow-300">Car Experts</span> in Germany</span>
                 </h1>
                 
-                <p class="text-xl mb-8 text-blue-100 max-w-3xl mx-auto fade-in">
+                <p class="text-lg sm:text-xl mb-8 text-blue-100 max-w-3xl mx-auto fade-in px-4">
                     <span class="de">Verbinde dich mit verifizierten Autoexperten für Fahrzeugsuche, Kaufberatung und Verhandlung. Finde den perfekten Spezialisten für deinen Autokauf.</span>
                     <span class="en hidden">Connect with verified car experts for vehicle search, purchase consulting and negotiation. Find the perfect specialist for your car purchase.</span>
                 </p>
 
                 <!-- Launch Announcement -->
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8 fade-in">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8 mb-8 fade-in mx-4 sm:mx-0">
                     <div class="text-center">
-                        <div class="w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-semibold mb-4">
+                        <h3 class="text-xl sm:text-2xl font-semibold mb-4">
                             <span class="de">Q4 2025 - Sei dabei!</span>
                             <span class="en hidden">Q4 2025 - Be Part of It!</span>
                         </h3>
-                        <p class="text-blue-100 mb-6 max-w-2xl mx-auto">
+                        <p class="text-blue-100 mb-6 max-w-2xl mx-auto text-sm sm:text-base">
                             <span class="de">Wir arbeiten intensiv daran, die beste Plattform für Autoexperten und Kunden zu schaffen. Melde dich jetzt an und erhalte exklusiven Zugang zur Beta-Version.</span>
                             <span class="en hidden">We're working intensively to create the best platform for car experts and customers. Sign up now and get exclusive access to the beta version.</span>
                         </p>
@@ -537,20 +569,20 @@
     </section>
 
     <!-- Early Access Signup -->
-    <section id="signup" class="py-20 bg-blue-600 text-white">
+    <section id="signup" class="py-12 sm:py-16 lg:py-20 bg-blue-600 text-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold mb-6">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
                 <span class="de">Sei einer der Ersten!</span>
                 <span class="en hidden">Be One of the First!</span>
             </h2>
-            <p class="text-xl mb-8 text-blue-100">
+            <p class="text-lg sm:text-xl mb-8 text-blue-100">
                 <span class="de">Melde dich jetzt an und erhalte exklusiven Zugang zur Beta-Version plus 50% Rabatt auf die ersten 3 Monate.</span>
                 <span class="en hidden">Sign up now and get exclusive access to the beta version plus 50% discount on the first 3 months.</span>
             </p>
 
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12">
                 <!-- For Car Seekers -->
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8">
                     <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"></path>
@@ -589,7 +621,7 @@
                 </div>
 
                 <!-- For Experts -->
-                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8">
                     <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto">
                         <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
@@ -686,6 +718,7 @@
                         <li><a href="#" onclick="showLegalModal('privacy')" class="hover:text-white transition-colors cursor-pointer"><span class="de">Datenschutz</span><span class="en hidden">Privacy Policy</span></a></li>
                         <li><a href="#" onclick="showLegalModal('terms')" class="hover:text-white transition-colors cursor-pointer"><span class="de">AGB</span><span class="en hidden">Terms</span></a></li>
                         <li><a href="#" onclick="showCookieSettings()" class="hover:text-white transition-colors cursor-pointer"><span class="de">Cookie-Einstellungen</span><span class="en hidden">Cookie Settings</span></a></li>
+                        <li><a href="#" onclick="exportConsentData()" class="hover:text-white transition-colors cursor-pointer"><span class="de">Daten exportieren</span><span class="en hidden">Export Data</span></a></li>
                     </ul>
                 </div>
                 <div>
@@ -715,36 +748,33 @@
 
     <!-- GDPR Cookie Consent Banner -->
     <div id="cookieBanner" class="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-blue-600 shadow-lg z-50 transform translate-y-full transition-transform duration-300">
-        <div class="max-w-7xl mx-auto p-4">
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div class="flex-1">
-                    <div class="flex items-center gap-3 mb-2">
-                        <span class="text-2xl">🍪</span>
-                        <h3 class="text-lg font-semibold text-gray-900">
-                            <span class="de">Cookie-Einstellungen</span>
-                            <span class="en hidden">Cookie Settings</span>
-                        </h3>
-                    </div>
-                    <p class="text-sm text-gray-700">
-                        <span class="de">Wir verwenden Cookies für die beste Erfahrung. Sie können Ihre Präferenzen jederzeit anpassen.</span>
-                        <span class="en hidden">We use cookies for the best experience. You can adjust your preferences anytime.</span>
-                        <a href="#" onclick="showLegalModal('privacy')" class="text-blue-600 hover:underline ml-1">
-                            <span class="de">Mehr erfahren</span>
-                            <span class="en hidden">Learn more</span>
-                        </a>
-                    </p>
+        <div class="max-w-7xl mx-auto p-3 sm:p-4">
+            <div class="flex flex-col gap-3 sm:gap-4">
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <span class="text-xl sm:text-2xl">🍪</span>
+                    <h3 class="text-base sm:text-lg font-semibold text-gray-900">
+                        <span class="de">Cookie-Einstellungen</span>
+                        <span class="en hidden">Cookie Settings</span>
+                    </h3>
                 </div>
-                
+                <p class="text-xs sm:text-sm text-gray-700">
+                    <span class="de">Wir verwenden Cookies für die beste Erfahrung. Sie können Ihre Präferenzen jederzeit anpassen.</span>
+                    <span class="en hidden">We use cookies for the best experience. You can adjust your preferences anytime.</span>
+                    <a href="#" onclick="showLegalModal('privacy')" class="text-blue-600 hover:underline ml-1">
+                        <span class="de">Mehr erfahren</span>
+                        <span class="en hidden">Learn more</span>
+                    </a>
+                </p>
                 <div class="flex flex-col sm:flex-row gap-2">
-                    <button id="acceptAllCookies" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                    <button id="acceptAllCookies" class="bg-blue-600 hover:bg-blue-700 text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors">
                         <span class="de">Alle akzeptieren</span>
                         <span class="en hidden">Accept All</span>
                     </button>
-                    <button id="rejectAllCookies" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                    <button id="rejectAllCookies" class="bg-gray-600 hover:bg-gray-700 text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors">
                         <span class="de">Alle ablehnen</span>
                         <span class="en hidden">Reject All</span>
                     </button>
-                    <button id="saveCookiePreferences" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                    <button id="saveCookiePreferences" class="bg-green-600 hover:bg-green-700 text-white px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors">
                         <span class="de">Einstellungen</span>
                         <span class="en hidden">Settings</span>
                     </button>
@@ -865,10 +895,12 @@
             emailjs.init("W8eCRrg8f8cDpSLhd");
         })();
 
-        // GDPR Compliant Cookie Consent Management
+        // GDPR Compliant Cookie Consent Management with Comprehensive Logging
         const COOKIE_CONSENT_KEY = 'proauto24_cookie_consent';
         const COOKIE_CONSENT_VERSION = '1.0';
         const CONSENT_DURATION = 365; // days
+        const CONSENT_LOG_KEY = 'proauto24_consent_log';
+        const CONSENT_RENEWAL_REMINDER_DAYS = 30; // days before expiration
 
         // Cookie categories
         const COOKIE_CATEGORIES = {
@@ -907,6 +939,148 @@
             }
         };
 
+        // Comprehensive consent logging system
+        function logConsentAction(action, preferences, userAgent, referrer) {
+            const consentLog = {
+                timestamp: new Date().toISOString(),
+                action: action, // 'given', 'withdrawn', 'modified', 'renewed'
+                preferences: preferences,
+                version: COOKIE_CONSENT_VERSION,
+                userAgent: userAgent || navigator.userAgent,
+                referrer: referrer || document.referrer,
+                url: window.location.href,
+                language: document.documentElement.lang,
+                ipAddress: 'anonymized', // Will be set by server-side logging
+                consentId: generateConsentId(),
+                expiresAt: new Date(Date.now() + (CONSENT_DURATION * 24 * 60 * 60 * 1000)).toISOString()
+            };
+
+            // Store in localStorage for client-side audit trail
+            const existingLogs = JSON.parse(localStorage.getItem(CONSENT_LOG_KEY) || '[]');
+            existingLogs.push(consentLog);
+            
+            // Keep only last 50 entries to prevent storage bloat
+            if (existingLogs.length > 50) {
+                existingLogs.splice(0, existingLogs.length - 50);
+            }
+            
+            localStorage.setItem(CONSENT_LOG_KEY, JSON.stringify(existingLogs));
+
+            // Send to server for compliance logging (if available)
+            sendConsentToServer(consentLog);
+
+            return consentLog.consentId;
+        }
+
+        function generateConsentId() {
+            return 'consent_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+
+        function sendConsentToServer(consentLog) {
+            // This would typically send to your backend for server-side logging
+            // For now, we'll use a webhook or analytics service
+            try {
+                // Example: Send to a webhook endpoint for compliance logging
+                fetch('/api/consent-log', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(consentLog)
+                }).catch(error => {
+                    console.log('Consent logging to server failed (expected in demo):', error);
+                });
+            } catch (error) {
+                console.log('Consent logging to server failed (expected in demo):', error);
+            }
+        }
+
+        function getConsentLog() {
+            return JSON.parse(localStorage.getItem(CONSENT_LOG_KEY) || '[]');
+        }
+
+        function exportConsentData() {
+            const consentData = {
+                currentConsent: getCookieConsent(),
+                consentHistory: getConsentLog(),
+                exportDate: new Date().toISOString(),
+                version: COOKIE_CONSENT_VERSION
+            };
+
+            const dataStr = JSON.stringify(consentData, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = `proauto24_consent_data_${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+        }
+
+        function checkConsentRenewal() {
+            const consent = getCookieConsent();
+            if (!consent) return;
+
+            const now = new Date();
+            const expiresAt = new Date(consent.expiresAt || new Date(consent.timestamp).getTime() + (CONSENT_DURATION * 24 * 60 * 60 * 1000));
+            const daysUntilExpiry = Math.ceil((expiresAt - now) / (1000 * 60 * 60 * 24));
+
+            if (daysUntilExpiry <= CONSENT_RENEWAL_REMINDER_DAYS && daysUntilExpiry > 0) {
+                showConsentRenewalBanner(daysUntilExpiry);
+            }
+        }
+
+        function showConsentRenewalBanner(daysUntilExpiry) {
+            const isGerman = !document.querySelector('.de').classList.contains('hidden');
+            
+            const renewalBanner = document.createElement('div');
+            renewalBanner.id = 'consentRenewalBanner';
+            renewalBanner.className = 'fixed top-0 left-0 right-0 bg-yellow-100 border-b-2 border-yellow-500 shadow-lg z-50 p-4';
+            renewalBanner.innerHTML = `
+                <div class="max-w-7xl mx-auto flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <span class="text-2xl">⚠️</span>
+                        <div>
+                            <h3 class="font-semibold text-yellow-800">
+                                ${isGerman ? 'Cookie-Einverständnis läuft ab' : 'Cookie Consent Expiring'}
+                            </h3>
+                            <p class="text-sm text-yellow-700">
+                                ${isGerman ? 
+                                    `Ihr Cookie-Einverständnis läuft in ${daysUntilExpiry} Tagen ab. Bitte erneuern Sie Ihre Einstellungen.` :
+                                    `Your cookie consent expires in ${daysUntilExpiry} days. Please renew your settings.`
+                                }
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <button onclick="renewConsent()" class="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                            ${isGerman ? 'Erneuern' : 'Renew'}
+                        </button>
+                        <button onclick="dismissRenewalBanner()" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                            ${isGerman ? 'Später' : 'Later'}
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(renewalBanner);
+        }
+
+        function renewConsent() {
+            dismissRenewalBanner();
+            showCookieSettings();
+        }
+
+        function dismissRenewalBanner() {
+            const banner = document.getElementById('consentRenewalBanner');
+            if (banner) {
+                banner.remove();
+            }
+        }
+
         // Get current consent
         function getCookieConsent() {
             try {
@@ -932,21 +1106,29 @@
             }
         }
 
-        // Save consent
-        function saveCookieConsent(preferences) {
+        // Save consent with comprehensive logging
+        function saveCookieConsent(preferences, action = 'given') {
             const consent = {
                 version: COOKIE_CONSENT_VERSION,
                 timestamp: new Date().toISOString(),
                 preferences: preferences,
                 userAgent: navigator.userAgent,
-                ip: 'anonymized' // In production, you might want to log this server-side
+                ip: 'anonymized', // In production, you might want to log this server-side
+                expiresAt: new Date(Date.now() + (CONSENT_DURATION * 24 * 60 * 60 * 1000)).toISOString()
             };
             
             try {
                 localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(consent));
+                
+                // Log the consent action for compliance
+                const consentId = logConsentAction(action, preferences);
+                consent.consentId = consentId;
+                
                 console.log('Cookie consent saved:', consent);
+                return consentId;
             } catch (error) {
                 console.error('Error saving cookie consent:', error);
+                return null;
             }
         }
 
@@ -1020,6 +1202,7 @@
         // Handle consent actions
         function handleConsentAction(action) {
             let preferences;
+            let logAction = 'given';
             
             switch (action) {
                 case 'acceptAll':
@@ -1028,6 +1211,7 @@
                         analytics: true,
                         marketing: true
                     };
+                    logAction = 'given';
                     break;
                 case 'rejectAll':
                     preferences = {
@@ -1035,6 +1219,7 @@
                         analytics: false,
                         marketing: false
                     };
+                    logAction = 'given';
                     break;
                 case 'saveSelection':
                     // This now opens the settings modal instead of saving
@@ -1046,10 +1231,12 @@
                         analytics: document.getElementById('modalAnalyticsCookies').checked,
                         marketing: document.getElementById('modalMarketingCookies').checked
                     };
+                    logAction = 'modified';
                     break;
             }
             
-            saveCookieConsent(preferences);
+            // Save consent with proper logging
+            const consentId = saveCookieConsent(preferences, logAction);
             applyCookiePreferences(preferences);
             hideCookieBanner();
             hideCookieSettings();
@@ -1057,8 +1244,8 @@
             // Show subtle confirmation (no popup)
             const isGerman = !document.querySelector('.de').classList.contains('hidden');
             console.log(isGerman ? 
-                'Cookie-Einstellungen gespeichert' : 
-                'Cookie settings saved'
+                `Cookie-Einstellungen gespeichert (ID: ${consentId})` : 
+                `Cookie settings saved (ID: ${consentId})`
             );
         }
 
@@ -1086,11 +1273,38 @@
             } else {
                 // Apply existing preferences
                 applyCookiePreferences(consent.preferences);
+                
+                // Check for consent renewal
+                checkConsentRenewal();
             }
         }
 
         // Initialize when page loads
         document.addEventListener('DOMContentLoaded', initializeCookieConsent);
+
+        // Mobile Menu Functionality
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const langToggleMobile = document.getElementById('langToggleMobile');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking on links
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Mobile language toggle
+        langToggleMobile.addEventListener('click', () => {
+            const newLanguage = isGerman ? 'en' : 'de';
+            setLanguage(newLanguage);
+            updateURLWithLanguage(newLanguage);
+        });
 
         // Legal Modal Management
         const legalModal = document.getElementById('legalModal');
@@ -1175,8 +1389,12 @@
                 
                 <p><strong>Marketing-Cookies:</strong> Diese Cookies werden verwendet, um Besuchern relevante Anzeigen und Marketingkampagnen bereitzustellen. Diese Cookies verfolgen Besucher über Websites hinweg und sammeln Informationen, um maßgeschneiderte Anzeigen bereitzustellen.</p>
                 
-                <h5>Cookie-Verwaltung</h5>
+                <h5>Cookie-Verwaltung und Einwilligungsprotokollierung</h5>
                 <p>Sie können Ihre Cookie-Einstellungen jederzeit über den Link "Cookie-Einstellungen" im Footer der Website ändern oder widerrufen. Ihre Einwilligung wird für 365 Tage gespeichert und muss dann erneuert werden.</p>
+                
+                <p><strong>Einwilligungsprotokollierung:</strong> Wir protokollieren alle Einwilligungsentscheidungen mit Zeitstempel, eindeutiger Konsens-ID, Browser-Informationen und den gewählten Einstellungen. Diese Protokolle dienen der Nachweisbarkeit Ihrer Einwilligung und werden für die Dauer der gesetzlichen Aufbewahrungsfristen gespeichert.</p>
+                
+                <p><strong>Datenexport:</strong> Sie haben das Recht, eine Kopie Ihrer Einwilligungsdaten zu erhalten. Nutzen Sie hierfür den Link "Daten exportieren" im Footer der Website.</p>
                 
                 <h4>Server-Log-Dateien</h4>
                 <p>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch an uns übermittelt. Dies sind:</p>
@@ -1291,8 +1509,12 @@
                 
                 <p><strong>Marketing Cookies:</strong> These cookies are used to provide visitors with relevant ads and marketing campaigns. These cookies track visitors across websites and collect information to provide customized ads.</p>
                 
-                <h5>Cookie Management</h5>
+                <h5>Cookie Management and Consent Logging</h5>
                 <p>You can change or revoke your cookie settings at any time via the "Cookie Settings" link in the footer of the website. Your consent is stored for 365 days and must then be renewed.</p>
+                
+                <p><strong>Consent Logging:</strong> We log all consent decisions with timestamps, unique consent ID, browser information, and selected settings. These logs serve as proof of your consent and are stored for the duration of legal retention periods.</p>
+                
+                <p><strong>Data Export:</strong> You have the right to receive a copy of your consent data. Use the "Export Data" link in the footer of the website for this purpose.</p>
                 
                 <h4>Server Log Files</h4>
                 <p>The page provider automatically collects and stores information in so-called server log files, which your browser automatically transmits to us. These are:</p>
