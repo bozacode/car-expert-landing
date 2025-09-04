@@ -719,6 +719,7 @@
                         <li><a href="#" onclick="showLegalModal('terms')" class="hover:text-white transition-colors cursor-pointer"><span class="de">AGB</span><span class="en hidden">Terms</span></a></li>
                         <li><a href="#" onclick="showCookieSettings()" class="hover:text-white transition-colors cursor-pointer"><span class="de">Cookie-Einstellungen</span><span class="en hidden">Cookie Settings</span></a></li>
                         <li><a href="#" onclick="exportConsentData()" class="hover:text-white transition-colors cursor-pointer"><span class="de">Daten exportieren</span><span class="en hidden">Export Data</span></a></li>
+                        <li><a href="/unsubscribe.html" class="hover:text-white transition-colors"><span class="de">Newsletter abmelden</span><span class="en hidden">Unsubscribe</span></a></li>
                     </ul>
                 </div>
                 <div>
@@ -1810,7 +1811,7 @@
                     from_name: email.split('@')[0],
                     email: email,
                     subject: 'New Customer Registration - ProAuto24',
-                    message: `New Customer Registration\n\nEmail: ${email}\nComment: ${comment}\nLanguage: ${isGerman ? 'Deutsch' : 'English'}\nTimestamp: ${new Date().toISOString()}`
+                    message: `New Customer Registration\n\nEmail: ${email}\nComment: ${comment}\nLanguage: ${isGerman ? 'Deutsch' : 'English'}\nTimestamp: ${new Date().toISOString()}\n\nUnsubscribe: ${window.location.origin}/unsubscribe.html?email=${encodeURIComponent(email)}`
                 });
                 
                 console.log('EmailJS success:', result);
@@ -1857,7 +1858,7 @@
                     from_name: email.split('@')[0],
                     email: email,
                     subject: 'New Expert Registration - ProAuto24',
-                    message: `New Expert Registration\n\nEmail: ${email}\nComment: ${comment}\nLanguage: ${isGerman ? 'Deutsch' : 'English'}\nInterests: 50% discount for 3 months, Personal onboarding, Own online office\nTimestamp: ${new Date().toISOString()}`
+                    message: `New Expert Registration\n\nEmail: ${email}\nComment: ${comment}\nLanguage: ${isGerman ? 'Deutsch' : 'English'}\nInterests: 50% discount for 3 months, Personal onboarding, Own online office\nTimestamp: ${new Date().toISOString()}\n\nUnsubscribe: ${window.location.origin}/unsubscribe.html?email=${encodeURIComponent(email)}`
                 });
                 
                 alert(isGerman ? 
@@ -1899,7 +1900,7 @@
                     from_name: email.split('@')[0],
                     email: email,
                     subject: 'Newsletter Signup - ProAuto24',
-                    message: `Newsletter Signup\n\nEmail: ${email}\nComment: ${comment}\nLanguage: ${isGerman ? 'Deutsch' : 'English'}\nTimestamp: ${new Date().toISOString()}`
+                    message: `Newsletter Signup\n\nEmail: ${email}\nComment: ${comment}\nLanguage: ${isGerman ? 'Deutsch' : 'English'}\nTimestamp: ${new Date().toISOString()}\n\nUnsubscribe: ${window.location.origin}/unsubscribe.html?email=${encodeURIComponent(email)}`
                 });
                 
                 alert(isGerman ? 

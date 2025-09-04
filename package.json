@@ -1,0 +1,25 @@
+{
+  "name": "proauto24-unsubscribe-api",
+  "version": "1.0.0",
+  "description": "Unsubscribe API for ProAuto24 email compliance",
+  "main": "unsubscribe-api.js",
+  "scripts": {
+    "start": "node unsubscribe-api.js",
+    "dev": "nodemon unsubscribe-api.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "unsubscribe",
+    "email",
+    "compliance",
+    "gdpr"
+  ],
+  "author": "ProAuto24",
+  "license": "MIT"
+}

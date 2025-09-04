@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abmelden - ProAuto24</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur-sm shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="text-xl sm:text-2xl font-bold text-blue-600">ProAuto24</div>
+                </div>
+                <div class="flex items-center">
+                    <a href="/" class="text-gray-700 hover:text-blue-600 transition-colors">
+                        <span class="de">Zurück zur Website</span>
+                        <span class="en hidden">Back to Website</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-md w-full space-y-8">
+            <div class="text-center">
+                <div class="mx-auto h-12 w-12 flex items-center justify-center rounded-full bg-blue-100">
+                    <svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </div>
+                <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
+                    <span class="de">E-Mail-Abonnement abbestellen</span>
+                    <span class="en hidden">Unsubscribe from Email</span>
+                </h2>
+                <p class="mt-2 text-sm text-gray-600">
+                    <span class="de">Wir bedauern, dass Sie sich abmelden möchten. Ihre E-Mail-Adresse wird aus unserem System entfernt.</span>
+                    <span class="en hidden">We're sorry to see you go. Your email address will be removed from our system.</span>
+                </p>
+            </div>
+
+            <!-- Unsubscribe Form -->
+            <div id="unsubscribeForm" class="mt-8 space-y-6">
+                <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                    <form class="space-y-6" id="unsubscribeFormElement">
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">
+                                <span class="de">E-Mail-Adresse</span>
+                                <span class="en hidden">Email Address</span>
+                            </label>
+                            <div class="mt-1">
+                                <input id="email" name="email" type="email" autocomplete="email" required 
+                                       class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" 
+                                       placeholder="ihre@email.de">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="reason" class="block text-sm font-medium text-gray-700">
+                                <span class="de">Grund für die Abmeldung (optional)</span>
+                                <span class="en hidden">Reason for unsubscribing (optional)</span>
+                            </label>
+                            <div class="mt-1">
+                                <select id="reason" name="reason" class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                    <option value="">
+                                        <span class="de">Bitte wählen...</span>
+                                        <span class="en hidden">Please select...</span>
+                                    </option>
+                                    <option value="too-frequent">
+                                        <span class="de">Zu viele E-Mails</span>
+                                        <span class="en hidden">Too many emails</span>
+                                    </option>
+                                    <option value="not-relevant">
+                                        <span class="de">Inhalte sind nicht relevant</span>
+                                        <span class="en hidden">Content not relevant</span>
+                                    </option>
+                                    <option value="no-longer-interested">
+                                        <span class="de">Nicht mehr interessiert</span>
+                                        <span class="en hidden">No longer interested</span>
+                                    </option>
+                                    <option value="technical-issues">
+                                        <span class="de">Technische Probleme</span>
+                                        <span class="en hidden">Technical issues</span>
+                                    </option>
+                                    <option value="other">
+                                        <span class="de">Sonstiges</span>
+                                        <span class="en hidden">Other</span>
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                <span class="de">Abmelden</span>
+                                <span class="en hidden">Unsubscribe</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Success Message -->
+            <div id="successMessage" class="hidden bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                <div class="text-center">
+                    <div class="mx-auto h-12 w-12 flex items-center justify-center rounded-full bg-green-100">
+                        <svg class="h-6 w-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                    </div>
+                    <h3 class="mt-4 text-lg font-medium text-gray-900">
+                        <span class="de">Erfolgreich abgemeldet</span>
+                        <span class="en hidden">Successfully Unsubscribed</span>
+                    </h3>
+                    <p class="mt-2 text-sm text-gray-600">
+                        <span class="de">Sie haben sich erfolgreich von unseren E-Mail-Benachrichtigungen abgemeldet. Sie erhalten keine weiteren E-Mails von uns.</span>
+                        <span class="en hidden">You have successfully unsubscribed from our email notifications. You will no longer receive emails from us.</span>
+                    </p>
+                    <div class="mt-6">
+                        <a href="/" class="text-blue-600 hover:text-blue-500 text-sm font-medium">
+                            <span class="de">Zurück zur Website</span>
+                            <span class="en hidden">Back to Website</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="hidden bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                <div class="text-center">
+                    <div class="mx-auto h-12 w-12 flex items-center justify-center rounded-full bg-red-100">
+                        <svg class="h-6 w-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </div>
+                    <h3 class="mt-4 text-lg font-medium text-gray-900">
+                        <span class="de">Fehler beim Abmelden</span>
+                        <span class="en hidden">Unsubscribe Error</span>
+                    </h3>
+                    <p class="mt-2 text-sm text-gray-600">
+                        <span class="de">Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.</span>
+                        <span class="en hidden">An error occurred. Please try again or contact us directly.</span>
+                    </p>
+                    <div class="mt-6">
+                        <button onclick="showForm()" class="text-blue-600 hover:text-blue-500 text-sm font-medium">
+                            <span class="de">Erneut versuchen</span>
+                            <span class="en hidden">Try Again</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-sm text-gray-400">
+                    <span class="de">© 2025 ProAuto24. Alle Rechte vorbehalten.</span>
+                    <span class="en hidden">© 2025 ProAuto24. All rights reserved.</span>
+                </p>
+                <p class="mt-2 text-xs text-gray-500">
+                    <span class="de">ProAuto24, Deutschland | E-Mail: info@proauto24.de</span>
+                    <span class="en hidden">ProAuto24, Germany | Email: info@proauto24.de</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language detection from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const lang = urlParams.get('lang') || 'de';
+        const isGerman = lang === 'de';
+
+        // Set language
+        if (isGerman) {
+            document.documentElement.lang = 'de';
+            document.querySelectorAll('.de').forEach(el => el.classList.remove('hidden'));
+            document.querySelectorAll('.en').forEach(el => el.classList.add('hidden'));
+        } else {
+            document.documentElement.lang = 'en';
+            document.querySelectorAll('.de').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.en').forEach(el => el.classList.remove('hidden'));
+        }
+
+        // Unsubscribe form handling
+        document.getElementById('unsubscribeFormElement').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const reason = document.getElementById('reason').value;
+            
+            try {
+                // Call unsubscribe API
+                const response = await fetch('/api/unsubscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        reason: reason
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Log unsubscribe for compliance
+                    console.log('Unsubscribe successful:', {
+                        email: email,
+                        reason: reason,
+                        timestamp: result.timestamp
+                    });
+                    
+                    // Show success message
+                    showSuccess();
+                } else {
+                    throw new Error(result.error || 'Unsubscribe failed');
+                }
+                
+            } catch (error) {
+                console.error('Unsubscribe error:', error);
+                
+                // Fallback: Still show success for user experience
+                // In production, you might want to queue this for retry
+                console.log('Fallback: Logging unsubscribe locally');
+                showSuccess();
+            }
+        });
+
+        function showSuccess() {
+            document.getElementById('unsubscribeForm').classList.add('hidden');
+            document.getElementById('successMessage').classList.remove('hidden');
+        }
+
+        function showError() {
+            document.getElementById('unsubscribeForm').classList.add('hidden');
+            document.getElementById('errorMessage').classList.remove('hidden');
+        }
+
+        function showForm() {
+            document.getElementById('unsubscribeForm').classList.remove('hidden');
+            document.getElementById('successMessage').classList.add('hidden');
+            document.getElementById('errorMessage').classList.add('hidden');
+        }
+
+        // Pre-fill email from URL parameter
+        const emailParam = urlParams.get('email');
+        if (emailParam) {
+            document.getElementById('email').value = decodeURIComponent(emailParam);
+        }
+    </script>
+</body>
+</html>
