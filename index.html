@@ -714,77 +714,39 @@
     </footer>
 
     <!-- GDPR Cookie Consent Banner -->
-    <div id="cookieBanner" class="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-blue-600 shadow-2xl z-50 transform translate-y-full transition-transform duration-300">
-        <div class="max-w-7xl mx-auto p-6">
-            <div class="flex flex-col lg:flex-row items-start justify-between gap-6">
+    <div id="cookieBanner" class="fixed bottom-0 left-0 right-0 bg-white border-t-2 border-blue-600 shadow-lg z-50 transform translate-y-full transition-transform duration-300">
+        <div class="max-w-7xl mx-auto p-4">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div class="flex-1">
-                    <h3 class="text-lg font-semibold text-gray-900 mb-3">
-                        <span class="de">🍪 Cookie-Einstellungen</span>
-                        <span class="en hidden">🍪 Cookie Settings</span>
-                    </h3>
-                    <p class="text-sm text-gray-700 mb-4">
-                        <span class="de">Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung zu bieten. Sie können Ihre Präferenzen jederzeit anpassen. Weitere Informationen finden Sie in unserer <a href="#" onclick="showLegalModal('privacy')" class="text-blue-600 hover:underline">Datenschutzerklärung</a>.</span>
-                        <span class="en hidden">We use cookies to provide you with the best possible experience. You can adjust your preferences at any time. For more information, see our <a href="#" onclick="showLegalModal('privacy')" class="text-blue-600 hover:underline">Privacy Policy</a>.</span>
-                    </p>
-                    
-                    <!-- Cookie Categories -->
-                    <div class="grid md:grid-cols-3 gap-4 mb-4">
-                        <div class="bg-gray-50 p-3 rounded-lg">
-                            <div class="flex items-center justify-between mb-2">
-                                <h4 class="font-medium text-gray-900 text-sm">
-                                    <span class="de">Notwendig</span>
-                                    <span class="en hidden">Necessary</span>
-                                </h4>
-                                <input type="checkbox" id="necessaryCookies" checked disabled class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
-                            </div>
-                            <p class="text-xs text-gray-600">
-                                <span class="de">Erforderlich für die Grundfunktionen der Website</span>
-                                <span class="en hidden">Required for basic website functionality</span>
-                            </p>
-                        </div>
-                        
-                        <div class="bg-gray-50 p-3 rounded-lg">
-                            <div class="flex items-center justify-between mb-2">
-                                <h4 class="font-medium text-gray-900 text-sm">
-                                    <span class="de">Analytik</span>
-                                    <span class="en hidden">Analytics</span>
-                                </h4>
-                                <input type="checkbox" id="analyticsCookies" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
-                            </div>
-                            <p class="text-xs text-gray-600">
-                                <span class="de">Helfen uns zu verstehen, wie Besucher die Website nutzen</span>
-                                <span class="en hidden">Help us understand how visitors use the website</span>
-                            </p>
-                        </div>
-                        
-                        <div class="bg-gray-50 p-3 rounded-lg">
-                            <div class="flex items-center justify-between mb-2">
-                                <h4 class="font-medium text-gray-900 text-sm">
-                                    <span class="de">Marketing</span>
-                                    <span class="en hidden">Marketing</span>
-                                </h4>
-                                <input type="checkbox" id="marketingCookies" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
-                            </div>
-                            <p class="text-xs text-gray-600">
-                                <span class="de">Für personalisierte Werbung und Inhalte</span>
-                                <span class="en hidden">For personalized advertising and content</span>
-                            </p>
-                        </div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="text-2xl">🍪</span>
+                        <h3 class="text-lg font-semibold text-gray-900">
+                            <span class="de">Cookie-Einstellungen</span>
+                            <span class="en hidden">Cookie Settings</span>
+                        </h3>
                     </div>
+                    <p class="text-sm text-gray-700">
+                        <span class="de">Wir verwenden Cookies für die beste Erfahrung. Sie können Ihre Präferenzen jederzeit anpassen.</span>
+                        <span class="en hidden">We use cookies for the best experience. You can adjust your preferences anytime.</span>
+                        <a href="#" onclick="showLegalModal('privacy')" class="text-blue-600 hover:underline ml-1">
+                            <span class="de">Mehr erfahren</span>
+                            <span class="en hidden">Learn more</span>
+                        </a>
+                    </p>
                 </div>
                 
-                <div class="flex flex-col sm:flex-row gap-3 lg:ml-6">
-                    <button id="acceptAllCookies" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors">
+                <div class="flex flex-col sm:flex-row gap-2">
+                    <button id="acceptAllCookies" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
                         <span class="de">Alle akzeptieren</span>
                         <span class="en hidden">Accept All</span>
                     </button>
-                    <button id="rejectAllCookies" class="bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors">
+                    <button id="rejectAllCookies" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
                         <span class="de">Alle ablehnen</span>
                         <span class="en hidden">Reject All</span>
                     </button>
-                    <button id="saveCookiePreferences" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-colors">
-                        <span class="de">Auswahl speichern</span>
-                        <span class="en hidden">Save Selection</span>
+                    <button id="saveCookiePreferences" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                        <span class="de">Einstellungen</span>
+                        <span class="en hidden">Settings</span>
                     </button>
                 </div>
             </div>
@@ -1075,12 +1037,9 @@
                     };
                     break;
                 case 'saveSelection':
-                    preferences = {
-                        necessary: true, // Always true
-                        analytics: document.getElementById('analyticsCookies').checked,
-                        marketing: document.getElementById('marketingCookies').checked
-                    };
-                    break;
+                    // This now opens the settings modal instead of saving
+                    showCookieSettings();
+                    return; // Don't proceed with saving
                 case 'saveModalSelection':
                     preferences = {
                         necessary: true, // Always true
@@ -1095,11 +1054,11 @@
             hideCookieBanner();
             hideCookieSettings();
             
-            // Show confirmation
+            // Show subtle confirmation (no popup)
             const isGerman = !document.querySelector('.de').classList.contains('hidden');
-            alert(isGerman ? 
-                'Ihre Cookie-Einstellungen wurden gespeichert.' : 
-                'Your cookie settings have been saved.'
+            console.log(isGerman ? 
+                'Cookie-Einstellungen gespeichert' : 
+                'Cookie settings saved'
             );
         }
 
@@ -1506,14 +1465,39 @@
             `;
         }
 
-        // Language Toggle
+        // Language Management with URL Support
         const langToggle = document.getElementById('langToggle');
         const deElements = document.querySelectorAll('.de');
         const enElements = document.querySelectorAll('.en');
         let isGerman = true;
 
-        langToggle.addEventListener('click', () => {
-            isGerman = !isGerman;
+        // Function to get language from URL
+        function getLanguageFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const path = window.location.pathname;
+            
+            // Check UTM parameter
+            const utmLang = urlParams.get('lang') || urlParams.get('language') || urlParams.get('utm_lang');
+            if (utmLang) {
+                return utmLang.toLowerCase() === 'en' ? 'en' : 'de';
+            }
+            
+            // Check path-based language
+            if (path.includes('/en') || path.includes('/english')) {
+                return 'en';
+            }
+            if (path.includes('/de') || path.includes('/deutsch')) {
+                return 'de';
+            }
+            
+            // Check browser language as fallback
+            const browserLang = navigator.language || navigator.userLanguage;
+            return browserLang.startsWith('en') ? 'en' : 'de';
+        }
+
+        // Function to set language
+        function setLanguage(language) {
+            isGerman = language === 'de';
             
             if (isGerman) {
                 deElements.forEach(el => el.classList.remove('hidden'));
@@ -1526,7 +1510,59 @@
                 langToggle.textContent = 'DE';
                 document.documentElement.lang = 'en';
             }
+            
+            // Store language preference
+            localStorage.setItem('proauto24_language', language);
+        }
+
+        // Function to update URL with language parameter
+        function updateURLWithLanguage(language) {
+            const url = new URL(window.location);
+            const currentLang = url.searchParams.get('lang') || url.searchParams.get('language') || url.searchParams.get('utm_lang');
+            
+            // Only update if language actually changed
+            if (currentLang !== language) {
+                // Remove existing language parameters
+                url.searchParams.delete('lang');
+                url.searchParams.delete('language');
+                url.searchParams.delete('utm_lang');
+                
+                // Add new language parameter
+                url.searchParams.set('lang', language);
+                
+                // Update URL without page reload
+                window.history.replaceState({}, '', url);
+            }
+        }
+
+        // Initialize language on page load
+        function initializeLanguage() {
+            // First check URL parameters
+            const urlLanguage = getLanguageFromURL();
+            
+            // Then check localStorage
+            const storedLanguage = localStorage.getItem('proauto24_language');
+            
+            // Use URL language if available, otherwise use stored language, otherwise default to German
+            const language = urlLanguage || storedLanguage || 'de';
+            
+            setLanguage(language);
+            
+            // Update URL if we're using stored language (so URL reflects current state)
+            if (!urlLanguage && storedLanguage) {
+                updateURLWithLanguage(storedLanguage);
+            }
+        }
+
+        // Language toggle event listener
+        langToggle.addEventListener('click', () => {
+            const newLanguage = isGerman ? 'en' : 'de';
+            setLanguage(newLanguage);
+            updateURLWithLanguage(newLanguage);
         });
+
+        // Initialize language when page loads
+        document.addEventListener('DOMContentLoaded', initializeLanguage);
 
 
 
