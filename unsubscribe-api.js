@@ -1,3 +1,7 @@
+// DEPRECATED: This API server is no longer used
+// Unsubscribe functionality now uses EmailJS directly from the frontend
+// See unsubscribe.html for the current implementation
+//
 // Simple Node.js Express server for unsubscribe functionality
 // This is a basic example - in production, use proper database and security
 
