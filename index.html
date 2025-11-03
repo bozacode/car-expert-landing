@@ -66,6 +66,46 @@
     <!-- DNS Prefetch -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    
+    <!-- Google Analytics 4 - GDPR Compliant (loaded conditionally after consent) -->
+    <script>
+        // Google Analytics 4 Configuration
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        
+        // Set default consent state to denied (GDPR compliant)
+        gtag('consent', 'default', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied',
+            'wait_for_update': 500
+        });
+        
+        // GA4 Measurement ID - Replace with your actual Google Analytics 4 Measurement ID
+        // Format: G-XXXXXXXXXX (get this from Google Analytics Admin > Data Streams)
+        window.GA4_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+        
+        // Function to load GA4 script after consent
+        function loadGoogleAnalytics() {
+            if (document.getElementById('ga-script')) return; // Already loaded
+            
+            const script = document.createElement('script');
+            script.async = true;
+            script.id = 'ga-script';
+            script.src = `https://www.googletagmanager.com/gtag/js?id=${window.GA4_MEASUREMENT_ID}`;
+            document.head.appendChild(script);
+            
+            // Initialize GA4 with privacy-friendly settings
+            gtag('js', new Date());
+            gtag('config', window.GA4_MEASUREMENT_ID, {
+                'anonymize_ip': true,
+                'allow_google_signals': false,
+                'allow_ad_personalization_signals': false,
+                'cookie_flags': 'SameSite=None;Secure'
+            });
+        }
+    </script>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1352,24 +1392,74 @@
         function applyCookiePreferences(preferences) {
             // Analytics cookies
             if (preferences.analytics) {
-                // Load Google Analytics or other analytics scripts
-                console.log('Analytics cookies enabled');
-                // Example: gtag('consent', 'update', { 'analytics_storage': 'granted' });
+                // Load GA4 script if not already loaded
+                if (window.GA4_MEASUREMENT_ID && window.GA4_MEASUREMENT_ID !== 'G-WTSG0RMTPR') {
+                    loadGoogleAnalytics();
+                    
+                    // Update consent to allow analytics
+                    gtag('consent', 'update', { 
+                        'analytics_storage': 'granted' 
+                    });
+                    
+                    // Track page view after a short delay to ensure script is loaded
+                    setTimeout(() => {
+                        if (typeof gtag !== 'undefined') {
+                            gtag('event', 'page_view', {
+                                'page_title': document.title,
+                                'page_location': window.location.href,
+                                'page_path': window.location.pathname
+                            });
+                        }
+                    }, 500);
+                    
+                    console.log('Analytics cookies enabled - Google Analytics 4 activated');
+                } else {
+                    // Update consent but don't load script if ID is placeholder
+                    if (typeof gtag !== 'undefined') {
+                        gtag('consent', 'update', { 
+                            'analytics_storage': 'granted' 
+                        });
+                    }
+                    console.log('Analytics cookies enabled - Please configure GA4_MEASUREMENT_ID');
+                }
             } else {
                 // Block analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('consent', 'update', { 
+                        'analytics_storage': 'denied' 
+                    });
+                }
                 console.log('Analytics cookies disabled');
-                // Example: gtag('consent', 'update', { 'analytics_storage': 'denied' });
             }
 
             // Marketing cookies
             if (preferences.marketing) {
-                // Load marketing scripts
+                // Update consent to allow advertising
+                if (typeof gtag !== 'undefined') {
+                    gtag('consent', 'update', { 
+                        'ad_storage': 'granted',
+                        'ad_user_data': 'granted',
+                        'ad_personalization': 'granted'
+                    });
+                }
                 console.log('Marketing cookies enabled');
-                // Example: gtag('consent', 'update', { 'ad_storage': 'granted' });
             } else {
                 // Block marketing
+                if (typeof gtag !== 'undefined') {
+                    gtag('consent', 'update', { 
+                        'ad_storage': 'denied',
+                        'ad_user_data': 'denied',
+                        'ad_personalization': 'denied'
+                    });
+                }
                 console.log('Marketing cookies disabled');
-                // Example: gtag('consent', 'update', { 'ad_storage': 'denied' });
+            }
+        }
+        
+        // Helper function to track custom events (call this after consent is given)
+        function trackEvent(eventName, eventParameters = {}) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', eventName, eventParameters);
             }
         }
 
