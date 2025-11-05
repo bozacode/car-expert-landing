@@ -68,43 +68,31 @@
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="//www.googletagmanager.com">
     
-    <!-- Google Analytics 4 - GDPR Compliant (loaded conditionally after consent) -->
+    <!-- Google tag (gtag.js) - GDPR Compliant -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WTSG0RMTPR"></script>
     <script>
         // Google Analytics 4 Configuration
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         window.gtag = gtag;
-        
+        gtag('js', new Date());
+
         // Set default consent state to denied (GDPR compliant)
+        // This ensures no data is collected until user gives consent
         gtag('consent', 'default', {
             'analytics_storage': 'denied',
             'ad_storage': 'denied',
             'wait_for_update': 500
         });
-        
-        // GA4 Measurement ID - Replace with your actual Google Analytics 4 Measurement ID
-        // Format: G-XXXXXXXXXX (get this from Google Analytics Admin > Data Streams)
-        window.GA4_MEASUREMENT_ID = 'G-WTSG0RMTPR';
-        
-        // Function to load GA4 script after consent
-        function loadGoogleAnalytics() {
-            if (document.getElementById('ga-script')) return; // Already loaded
-            
-            const script = document.createElement('script');
-            script.async = true;
-            script.id = 'ga-script';
-            script.src = `https://www.googletagmanager.com/gtag/js?id=${window.GA4_MEASUREMENT_ID}`;
-            document.head.appendChild(script);
-            
-            // Initialize GA4 with privacy-friendly settings
-            gtag('js', new Date());
-            gtag('config', window.GA4_MEASUREMENT_ID, {
-                'anonymize_ip': true,
-                'allow_google_signals': false,
-                'allow_ad_personalization_signals': false,
-                'cookie_flags': 'SameSite=None;Secure'
-            });
-        }
+
+        // Initialize GA4 with privacy-friendly settings
+        // Tracking is disabled by default due to consent mode above
+        gtag('config', 'G-WTSG0RMTPR', {
+            'anonymize_ip': true,
+            'allow_google_signals': false,
+            'allow_ad_personalization_signals': false,
+            'cookie_flags': 'SameSite=None;Secure'
+        });
     </script>
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -1392,66 +1380,44 @@
         function applyCookiePreferences(preferences) {
             // Analytics cookies
             if (preferences.analytics) {
-                // Load GA4 script if not already loaded
-                if (window.GA4_MEASUREMENT_ID && window.GA4_MEASUREMENT_ID !== 'G-WTSG0RMTPR') {
-                    loadGoogleAnalytics();
-                    
-                    // Update consent to allow analytics
-                    gtag('consent', 'update', { 
-                        'analytics_storage': 'granted' 
-                    });
-                    
-                    // Track page view after a short delay to ensure script is loaded
-                    setTimeout(() => {
-                        if (typeof gtag !== 'undefined') {
-                            gtag('event', 'page_view', {
-                                'page_title': document.title,
-                                'page_location': window.location.href,
-                                'page_path': window.location.pathname
-                            });
-                        }
-                    }, 500);
-                    
-                    console.log('Analytics cookies enabled - Google Analytics 4 activated');
-                } else {
-                    // Update consent but don't load script if ID is placeholder
-                    if (typeof gtag !== 'undefined') {
-                        gtag('consent', 'update', { 
-                            'analytics_storage': 'granted' 
-                        });
-                    }
-                    console.log('Analytics cookies enabled - Please configure GA4_MEASUREMENT_ID');
-                }
+                // Update consent to allow analytics
+                // GA4 script is already loaded, just update consent mode
+                gtag('consent', 'update', { 
+                    'analytics_storage': 'granted' 
+                });
+                
+                // Track page view since consent is now granted
+                gtag('event', 'page_view', {
+                    'page_title': document.title,
+                    'page_location': window.location.href,
+                    'page_path': window.location.pathname
+                });
+                
+                console.log('Analytics cookies enabled - Google Analytics 4 activated');
             } else {
                 // Block analytics
-                if (typeof gtag !== 'undefined') {
-                    gtag('consent', 'update', { 
-                        'analytics_storage': 'denied' 
-                    });
-                }
+                gtag('consent', 'update', { 
+                    'analytics_storage': 'denied' 
+                });
                 console.log('Analytics cookies disabled');
             }
 
             // Marketing cookies
             if (preferences.marketing) {
                 // Update consent to allow advertising
-                if (typeof gtag !== 'undefined') {
-                    gtag('consent', 'update', { 
-                        'ad_storage': 'granted',
-                        'ad_user_data': 'granted',
-                        'ad_personalization': 'granted'
-                    });
-                }
+                gtag('consent', 'update', { 
+                    'ad_storage': 'granted',
+                    'ad_user_data': 'granted',
+                    'ad_personalization': 'granted'
+                });
                 console.log('Marketing cookies enabled');
             } else {
                 // Block marketing
-                if (typeof gtag !== 'undefined') {
-                    gtag('consent', 'update', { 
-                        'ad_storage': 'denied',
-                        'ad_user_data': 'denied',
-                        'ad_personalization': 'denied'
-                    });
-                }
+                gtag('consent', 'update', { 
+                    'ad_storage': 'denied',
+                    'ad_user_data': 'denied',
+                    'ad_personalization': 'denied'
+                });
                 console.log('Marketing cookies disabled');
             }
         }
