@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title id="pageTitle">Blog Post - ProAuto24</title>
+    <meta name="description" id="pageDescription" content="ProAuto24 Blog Artikel">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" id="ogUrl" content="">
+    <meta property="og:title" id="ogTitle" content="">
+    <meta property="og:description" id="ogDescription" content="">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-gradient { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%); }
+        .hidden { display: none; }
+        .blog-content h2 { @apply text-2xl font-bold mt-8 mb-4 text-gray-900; }
+        .blog-content h3 { @apply text-xl font-semibold mt-6 mb-3 text-gray-900; }
+        .blog-content p { @apply mb-4 text-gray-700 leading-relaxed; }
+        .blog-content ul, .blog-content ol { @apply mb-4 ml-6; }
+        .blog-content li { @apply mb-2 text-gray-700; }
+        .blog-content a { @apply text-blue-600 hover:text-blue-800 underline; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur-sm shadow-sm fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="/" class="text-xl sm:text-2xl font-bold text-blue-600">ProAuto24</a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="/#concept" class="text-gray-700 hover:text-blue-600 transition-colors">
+                        <span class="de">Konzept</span>
+                        <span class="en hidden">Concept</span>
+                    </a>
+                    <a href="/#features" class="text-gray-700 hover:text-blue-600 transition-colors">
+                        <span class="de">Features</span>
+                        <span class="en hidden">Features</span>
+                    </a>
+                    <a href="/blog.html" class="text-gray-700 hover:text-blue-600 transition-colors">
+                        <span class="de">Blog</span>
+                        <span class="en hidden">Blog</span>
+                    </a>
+                    <a href="/#signup" class="text-gray-700 hover:text-blue-600 transition-colors">
+                        <span class="de">Anmeldung</span>
+                        <span class="en hidden">Sign Up</span>
+                    </a>
+                    <button id="langToggle" class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-sm font-medium hover:bg-blue-200 transition-colors">
+                        EN
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Post Content -->
+    <article class="pt-24 pb-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Loading State -->
+            <div id="loadingState" class="text-center py-12">
+                <p class="text-gray-600">
+                    <span class="de">Lade Artikel...</span>
+                    <span class="en hidden">Loading article...</span>
+                </p>
+            </div>
+
+            <!-- Error State -->
+            <div id="errorState" class="text-center py-12 hidden">
+                <p class="text-red-600 mb-4">
+                    <span class="de">Artikel nicht gefunden.</span>
+                    <span class="en hidden">Article not found.</span>
+                </p>
+                <a href="/blog.html" class="text-blue-600 hover:underline">
+                    <span class="de">← Zurück zum Blog</span>
+                    <span class="en hidden">← Back to Blog</span>
+                </a>
+            </div>
+
+            <!-- Post Content -->
+            <div id="postContent" class="hidden">
+                <!-- Breadcrumb -->
+                <nav class="mb-8">
+                    <ol class="flex items-center space-x-2 text-sm text-gray-600">
+                        <li><a href="/" class="hover:text-blue-600">Home</a></li>
+                        <li>/</li>
+                        <li><a href="/blog.html" class="hover:text-blue-600">
+                            <span class="de">Blog</span>
+                            <span class="en hidden">Blog</span>
+                        </a></li>
+                        <li>/</li>
+                        <li id="breadcrumbTitle" class="text-gray-900"></li>
+                    </ol>
+                </nav>
+
+                <!-- Post Header -->
+                <header class="mb-8">
+                    <div class="mb-4">
+                        <span id="postCategory" class="text-xs font-semibold text-blue-600 uppercase"></span>
+                        <span class="mx-2 text-gray-400">•</span>
+                        <time id="postDate" class="text-sm text-gray-500"></time>
+                    </div>
+                    <h1 id="postTitle" class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4"></h1>
+                    <p id="postExcerpt" class="text-xl text-gray-600 mb-6"></p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <span class="de">Von</span>
+                        <span class="en hidden">By</span>
+                        <span id="postAuthor" class="ml-1 font-semibold"></span>
+                    </div>
+                </header>
+
+                <!-- Featured Image -->
+                <div id="featuredImageContainer" class="mb-8 hidden">
+                    <img id="featuredImage" src="" alt="" class="w-full h-64 sm:h-96 object-cover rounded-lg">
+                </div>
+
+                <!-- Post Body -->
+                <div id="postBody" class="blog-content bg-white rounded-lg shadow-md p-8 mb-8 prose max-w-none">
+                    <!-- Content will be inserted here -->
+                </div>
+
+                <!-- Tags -->
+                <div id="postTags" class="mb-8 hidden">
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-sm text-gray-600">
+                            <span class="de">Tags:</span>
+                            <span class="en hidden">Tags:</span>
+                        </span>
+                        <div id="tagsList" class="flex flex-wrap gap-2"></div>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="flex justify-between items-center pt-8 border-t border-gray-200">
+                    <a href="/blog.html" class="text-blue-600 hover:text-blue-800 font-medium">
+                        <span class="de">← Zurück zum Blog</span>
+                        <span class="en hidden">← Back to Blog</span>
+                    </a>
+                    <a href="/#signup" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                        <span class="de">Jetzt anmelden</span>
+                        <span class="en hidden">Sign up now</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="text-2xl font-bold text-blue-400 mb-4">ProAuto24</div>
+                <p class="text-gray-400 text-sm mb-4">
+                    <span class="de">© 2025 ProAuto24. Alle Rechte vorbehalten.</span>
+                    <span class="en hidden">© 2025 ProAuto24. All rights reserved.</span>
+                </p>
+                <p class="text-xs text-gray-500">
+                    <span class="de">ProAuto24, Deutschland | E-Mail: info@proauto24.de</span>
+                    <span class="en hidden">ProAuto24, Germany | Email: info@proauto24.de</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language Management
+        const langToggle = document.getElementById('langToggle');
+        const deElements = document.querySelectorAll('.de');
+        const enElements = document.querySelectorAll('.en');
+        let isGerman = true;
+
+        function getLanguage() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const lang = urlParams.get('lang') || localStorage.getItem('proauto24_language') || 'de';
+            return lang === 'en' ? 'en' : 'de';
+        }
+
+        function setLanguage(language) {
+            isGerman = language === 'de';
+            if (isGerman) {
+                deElements.forEach(el => el.classList.remove('hidden'));
+                enElements.forEach(el => el.classList.add('hidden'));
+                langToggle.textContent = 'EN';
+                document.documentElement.lang = 'de';
+            } else {
+                deElements.forEach(el => el.classList.add('hidden'));
+                enElements.forEach(el => el.classList.remove('hidden'));
+                langToggle.textContent = 'DE';
+                document.documentElement.lang = 'en';
+            }
+            localStorage.setItem('proauto24_language', language);
+        }
+
+        langToggle.addEventListener('click', () => {
+            const newLanguage = isGerman ? 'en' : 'de';
+            setLanguage(newLanguage);
+            const url = new URL(window.location);
+            url.searchParams.set('lang', newLanguage);
+            window.history.replaceState({}, '', url);
+            loadPost(); // Reload post with new language
+        });
+
+        setLanguage(getLanguage());
+
+        // Load blog post
+        async function loadPost() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const slug = urlParams.get('slug');
+            
+            if (!slug) {
+                document.getElementById('loadingState').classList.add('hidden');
+                document.getElementById('errorState').classList.remove('hidden');
+                return;
+            }
+
+            try {
+                const response = await fetch('/blog-data.json');
+                const data = await response.json();
+                const post = data.posts.find(p => p.slug === slug && p.published);
+                
+                if (!post) {
+                    document.getElementById('loadingState').classList.add('hidden');
+                    document.getElementById('errorState').classList.remove('hidden');
+                    return;
+                }
+
+                // Update page title and meta
+                const title = isGerman ? post.title.de : post.title.en;
+                const excerpt = isGerman ? post.excerpt.de : post.excerpt.en;
+                document.getElementById('pageTitle').textContent = `${title} - ProAuto24 Blog`;
+                document.getElementById('pageDescription').content = excerpt;
+                document.getElementById('ogTitle').content = title;
+                document.getElementById('ogDescription').content = excerpt;
+                document.getElementById('ogUrl').content = window.location.href;
+
+                // Display post
+                document.getElementById('postTitle').textContent = title;
+                document.getElementById('postExcerpt').textContent = excerpt;
+                document.getElementById('postAuthor').textContent = post.author;
+                document.getElementById('breadcrumbTitle').textContent = title;
+                
+                const category = isGerman ? post.category.de : post.category.en;
+                document.getElementById('postCategory').textContent = category;
+                
+                const date = new Date(post.date).toLocaleDateString(isGerman ? 'de-DE' : 'en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                document.getElementById('postDate').textContent = date;
+                document.getElementById('postDate').setAttribute('datetime', post.date);
+
+                // Featured image
+                if (post.featuredImage) {
+                    document.getElementById('featuredImage').src = post.featuredImage;
+                    document.getElementById('featuredImage').alt = title;
+                    document.getElementById('featuredImageContainer').classList.remove('hidden');
+                }
+
+                // Content
+                const content = isGerman ? post.content.de : post.content.en;
+                document.getElementById('postBody').innerHTML = content;
+
+                // Tags
+                if (post.tags && post.tags.length > 0) {
+                    const tagsList = document.getElementById('tagsList');
+                    tagsList.innerHTML = post.tags.map(tag => 
+                        `<span class="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-medium">${tag}</span>`
+                    ).join('');
+                    document.getElementById('postTags').classList.remove('hidden');
+                }
+
+                document.getElementById('loadingState').classList.add('hidden');
+                document.getElementById('postContent').classList.remove('hidden');
+
+            } catch (error) {
+                console.error('Error loading post:', error);
+                document.getElementById('loadingState').classList.add('hidden');
+                document.getElementById('errorState').classList.remove('hidden');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadPost);
+    </script>
+</body>
+</html>
+

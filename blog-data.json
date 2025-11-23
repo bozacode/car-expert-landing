@@ -1,0 +1,55 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": {
+        "de": "Willkommen bei ProAuto24: Die Zukunft der Autoberatung",
+        "en": "Welcome to ProAuto24: The Future of Car Consulting"
+      },
+      "slug": "willkommen-bei-proauto24",
+      "excerpt": {
+        "de": "Erfahren Sie mehr über unsere innovative Plattform, die Autoexperten mit Kunden verbindet.",
+        "en": "Learn more about our innovative platform connecting car experts with customers."
+      },
+      "author": "ProAuto24 Team",
+      "date": "2025-01-15",
+      "category": {
+        "de": "Allgemein",
+        "en": "General"
+      },
+      "tags": ["plattform", "beta", "announcement"],
+      "featuredImage": "/images/blog/welcome.jpg",
+      "content": {
+        "de": "<p>Wir freuen uns, Ihnen ProAuto24 vorstellen zu können - die erste unabhängige Plattform für Autoexperten und Kunden in Deutschland.</p><p>Unsere Mission ist es, die Autoberatung zu revolutionieren und eine vertrauensvolle Verbindung zwischen Experten und Kunden zu schaffen.</p><h2>Was macht ProAuto24 einzigartig?</h2><p>ProAuto24 bietet eine innovative Lösung für alle, die professionelle Beratung rund um das Thema Auto benötigen. Unsere Plattform verbindet qualifizierte Autoexperten mit Kunden, die Unterstützung suchen.</p><h2>Beta-Phase</h2><p>Wir befinden uns aktuell in der Beta-Phase und suchen nach engagierten Experten und interessierten Kunden, die Teil unserer Community werden möchten.</p>",
+        "en": "<p>We are excited to introduce ProAuto24 - Germany's first independent platform for car experts and customers.</p><p>Our mission is to revolutionize car consulting and create a trusted connection between experts and customers.</p><h2>What makes ProAuto24 unique?</h2><p>ProAuto24 offers an innovative solution for anyone who needs professional advice about cars. Our platform connects qualified car experts with customers seeking support.</p><h2>Beta Phase</h2><p>We are currently in the beta phase and looking for committed experts and interested customers who want to become part of our community.</p>"
+      },
+      "published": true
+    },
+    {
+      "id": "2",
+      "title": {
+        "de": "So funktioniert die ProAuto24 Plattform",
+        "en": "How the ProAuto24 Platform Works"
+      },
+      "slug": "so-funktioniert-proauto24",
+      "excerpt": {
+        "de": "Ein detaillierter Überblick über die Funktionsweise unserer Plattform für Experten und Kunden.",
+        "en": "A detailed overview of how our platform works for experts and customers."
+      },
+      "author": "ProAuto24 Team",
+      "date": "2025-01-20",
+      "category": {
+        "de": "Plattform",
+        "en": "Platform"
+      },
+      "tags": ["plattform", "how-it-works", "features"],
+      "featuredImage": "/images/blog/platform.jpg",
+      "content": {
+        "de": "<p>Die ProAuto24 Plattform ist einfach zu bedienen und bietet sowohl für Experten als auch für Kunden zahlreiche Vorteile.</p><h2>Für Kunden</h2><p>Als Kunde können Sie einfach nach einem Experten suchen, der zu Ihren Bedürfnissen passt. Sie können Fragen stellen, Beratung erhalten und von der Expertise unserer Partner profitieren.</p><h2>Für Experten</h2><p>Als Experte erhalten Sie ein eigenes Online-Büro, Tools zur Verwaltung Ihrer Kunden und die Möglichkeit, Ihr Wissen zu teilen und zu monetarisieren.</p>",
+        "en": "<p>The ProAuto24 platform is easy to use and offers numerous benefits for both experts and customers.</p><h2>For Customers</h2><p>As a customer, you can easily search for an expert that fits your needs. You can ask questions, get advice, and benefit from our partners' expertise.</p><h2>For Experts</h2><p>As an expert, you get your own online office, tools to manage your customers, and the opportunity to share and monetize your knowledge.</p>"
+      },
+      "published": true
+    }
+  ]
+}
+
